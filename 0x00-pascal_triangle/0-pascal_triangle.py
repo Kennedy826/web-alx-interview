@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 """
-A funnumtion to print the pascal triangle.
+A function to print the pascal triangle.
 def pascal_triangle(n): 
 """
 
 def pascal_triangle(n):
-    if n <= 0:
-        return []
-
+    """Create a function def pascal_triangle(n): 
+    prints the of  Pascal’s triangle of n 
+    """
     triangle = []
-    for i in range(n):
-        row = []
-        for j in range(i + 1):
-            if j == 0 or j == i:
-                row.append(1)
-            else:
-                row.append(triangle[i - 1][j - 1] + triangle[i - 1][j])
-        triangle.append(row)
-
+    if n > 0:
+        for i in range(1, n + 1):
+            arr = []
+            num = 1
+            for j in range(1, i + 1):
+                arr.append(num)
+                num = num * (i - j) // j
+            triangle.append(arr)
     return triangle
